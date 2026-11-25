@@ -1,0 +1,62 @@
+#include <stdio.h>
+
+int main()
+{
+    int mat[4][5], i, j, qtdmais=0;
+    int linha=0, coluna=0, maior=0, total=0, totalinha;
+    
+    for(i=0; i<4; i++)
+    {
+        for(j=0; j<5; j++)
+        {
+            printf("\nInsira a quantidade de pecas do setor[%d][%d]:", i + 1, j + 1);
+            scanf("%d", &mat[i][j]);
+            
+            total = total + mat[i][j];
+            if(mat[i][j] > 10)
+            {
+                qtdmais ++;
+            }
+        }
+    }
+    
+    for(i=0; i<4; i++)
+    {
+        for(j=0; j<5; j++)
+        {
+            printf("\nSetor[%d][%d], Quantidade:%d", i + 1, j + 1, mat[i][j]);
+        }
+        printf("\n");
+    }
+    
+    maior = mat[0][0];
+    
+    for(i=0; i<4; i++)
+    {
+        for(j=0; j<5; j++)
+        {
+            if(mat[i][j] > maior)
+            {
+                maior = mat[i][j];
+                linha = i + 1;
+                coluna = j + 1 ;
+            }
+        }
+    }
+    printf("\n");
+    for(i=0; i<4; i++)
+    {
+        totalinha=0;
+        for(j=0; j<5; j++)
+        {
+            totalinha = totalinha + mat[i][j];
+        }
+        printf("\nTotal da linha[%d]: %d", i + 1, totalinha);
+    }
+    printf("\n");
+    printf("\nMaior Quantidade:[%d], no setor[%d][%d]", maior + 1, linha + 1, coluna);
+    printf("\nQuantiade maior que 10:%d", qtdmais);
+    printf("\nTotal de pecas:%d", total);
+    
+    
+}
